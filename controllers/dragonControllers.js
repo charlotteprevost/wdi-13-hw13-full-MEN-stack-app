@@ -72,17 +72,28 @@ router.get('/:id', (req, res) => {
 		(err, foundDragon) => {
 
 			res.render('show.ejs', {
-				Dragon: foundDragon,
-			});
-			
+				Dragon: foundDragon
+			});		
 		}
-	)
+	);
+});
 
-	// Dragons.find({})
+
+// -------------------- EDIT ROUTE ---------------------- //
+/*********** Edit One Dragon ***********/
+
+router.get('/:id/edit', (req, res) => {
 	
-})
-
-
+	Dragons.findById(
+		req.params.id,
+		(err, foundDragon) => {
+			
+			res.render('edit.ejs', {
+				Dragon: foundDragon
+			})
+		}
+	);
+});
 
 
 
