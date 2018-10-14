@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Route</title>
+</head>
+<body>
+
+	<h1>Dragons - Index</h1>
+
+	<ul>
+		<%Dragons.forEach((elem, i) => {%>
+
+			<li><%=elem.name%></li>
+
+		<%});%>
+	</ul>
+
+	<button href="/dragons/new">Create New Dragon</button>
+
+</body>
+</html>

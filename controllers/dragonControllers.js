@@ -51,7 +51,7 @@ router.get('/', (req, res) => {
 			else {
 				console.log(`-------------------- All Dragons --------------------\n`, allDragons);
 				res.render('index.ejs', {
-					Dragons: allDragons;
+					Dragons: allDragons
 				})
 			}
 	})
