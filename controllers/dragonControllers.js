@@ -100,6 +100,7 @@ router.get('/:id/edit', (req, res) => {
 	);
 });
 
+
 // -------------------- UPDATE ROUTE ---------------------- //
 /*********** Update Database with Gathered Information ***********/
 
@@ -112,16 +113,30 @@ router.put('/:id', (req, res) => {
 			if (err) {console.log(`----------------------------------------Error: \n`, err);}
 			else {
 				console.log(`-------------------- Updated Dragon --------------------\n`, updatedDragon);
-				res.redirect('/dragons')
-				
+				res.redirect('/dragons');		
 			}
-		})
-
+		}
+	);
 });
 
 
+// -------------------- DESTROY ROUTE ---------------------- //
+/*********** Update Database ***********/
 
+router.delete('/:id', (req, res) => {
 
+	Dragons.findByIdAndRemove(
+		req.params.id,
+		req.body,
+		(err, removedDragon) => {
+			if (err) {console.log(`----------------------------------------Error: \n`, err);}
+			else {
+				console.log(`-------------------- Removed Dragon --------------------\n`, removedDragon);
+				res.redirect('/dragons')
+			}	
+		}
+	)
+});
 
 
 

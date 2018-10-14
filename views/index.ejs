@@ -10,7 +10,16 @@
 	<ul>
 		<%Dragons.forEach((elem, i) => {%>
 
-			<li><a href="/dragons/<%=Dragons[i].id%>"><%=elem.name%></a></li>
+			<li>
+				<a href="/dragons/<%=Dragons[i].id%>"><%=elem.name%></a>
+
+				<form action="/dragons/<%=Dragons[i].id%>/edit">
+					<input type="submit" name="" value="Edit <%=Dragons[i].name%>">
+				</form>
+				<form action="/dragons/<%=Dragons[i].id%>?_method=DELETE" method="POST" >
+					<input type="submit" name="" value="Delete <%=Dragons[i].name%>">
+				</form>
+			</li>
 
 		<%});%>
 	</ul>
