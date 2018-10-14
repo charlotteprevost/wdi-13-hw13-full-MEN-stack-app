@@ -1,0 +1,26 @@
+{
+  "name": "wdi-13-hw13-full-men-stack-app",
+  "version": "1.0.0",
+  "description": "![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlotteprevost/wdi-13-hw13-full-MEN-stack-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlotteprevost/wdi-13-hw13-full-MEN-stack-app/issues"
+  },
+  "homepage": "https://github.com/charlotteprevost/wdi-13-hw13-full-MEN-stack-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.3"
+  }
+}
