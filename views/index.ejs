@@ -10,12 +10,14 @@
 	<ul>
 		<%Dragons.forEach((elem, i) => {%>
 
-			<li><%=elem.name%></li>
+			<li><a href="/dragons/<%=Dragons[i].id%>"><%=elem.name%></a></li>
 
 		<%});%>
 	</ul>
 
-	<button href="/dragons/new">Create New Dragon</button>
+	<form action="/dragons/new">
+		<input type="submit" value="Create New Dragon">
+	</form>
 
 </body>
 </html>
