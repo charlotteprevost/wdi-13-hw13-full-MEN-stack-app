@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show Route</title>
+</head>
+<body>
+
+	<h1><%=Dragon.name%></h1>
+
+	<ul>
+		<li>From:<br><%=Dragon.from%></li>
+		<li>Loves:<br><%=Dragon.loves%></li>
+		<li>Size:<br><%=Dragon.size%>meter(s)</li>
+		<li>Color:<br><%=Dragon.color%></li>
+	</ul>
+
+	<form action="/dragons/<%=Dragon._id%>/edit">
+		<input type="submit" name="" value="Edit <%=Dragon.name%>">
+	</form>
+
+	<form action="/dragons?_method=DELETE" method="POST" >
+		<input type="submit" name="" value="Delete <%=Dragon.name%>">
+	</form>
+
+</body>
+</html>

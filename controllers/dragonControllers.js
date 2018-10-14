@@ -46,7 +46,8 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
 
-	Dragons.find({},
+	Dragons.find(
+		{},
 		(err, allDragons) => {
 
 			if (err) {console.log(`Error: `, err);}
@@ -66,13 +67,17 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
 
-	// console.log(`-------------------- req --------------------\n`, req);
+	Dragons.findById(
+		req.params.id,
+		(err, foundDragon) => {
 
+			res.render('show.ejs', {
+				Dragon: foundDragon,
+			});
+			
+		}
+	)
 
-	res.render('show.ejs', {
-		Dragons,
-		id: req.params.id
-	});
 	// Dragons.find({})
 	
 })
