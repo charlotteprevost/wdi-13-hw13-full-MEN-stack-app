@@ -50,7 +50,7 @@ router.get('/', (req, res) => {
 		{},
 		(err, allDragons) => {
 
-			if (err) {console.log(`Error: `, err);}
+			if (err) {console.log(`----------------------------------------Error: `, err);}
 			else {
 				console.log(`-------------------- All Dragons --------------------\n`, allDragons);
 				res.render('index.ejs', {
@@ -70,10 +70,12 @@ router.get('/:id', (req, res) => {
 	Dragons.findById(
 		req.params.id,
 		(err, foundDragon) => {
-
-			res.render('show.ejs', {
-				Dragon: foundDragon
-			});		
+			if (err) {console.log(`----------------------------------------Error: `, err);}
+			else {
+				res.render('show.ejs', {
+					Dragon: foundDragon
+				});		
+			}
 		}
 	);
 });
@@ -87,12 +89,34 @@ router.get('/:id/edit', (req, res) => {
 	Dragons.findById(
 		req.params.id,
 		(err, foundDragon) => {
-			
-			res.render('edit.ejs', {
-				Dragon: foundDragon
-			})
+			if (err) {console.log(`----------------------------------------Error: \n`, err);}
+			else {
+				console.log(`-------------------- Found Dragon --------------------\n`, foundDragon);
+				res.render('edit.ejs', {
+					Dragon: foundDragon
+				})
+			}
 		}
 	);
+});
+
+// -------------------- UPDATE ROUTE ---------------------- //
+/*********** Update Database with Gathered Information ***********/
+
+router.put('/:id', (req, res) => {
+	
+	Dragons.findByIdAndUpdate(
+		req.params.id,
+		req.body,
+		(err, updatedDragon) => {
+			if (err) {console.log(`----------------------------------------Error: \n`, err);}
+			else {
+				console.log(`-------------------- Updated Dragon --------------------\n`, updatedDragon);
+				res.redirect('/dragons')
+				
+			}
+		})
+
 });
 
 
