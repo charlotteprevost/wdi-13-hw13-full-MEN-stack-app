@@ -25,15 +25,15 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
 	// This is where I take the information gathered from the form and add it to our dragons database
-	console.log("-------------------- This is where the info gathered lives --------------------\n", req.body);
+	console.log(`-------------------- This is where the info gathered lives --------------------\n`, req.body);
 
 	// Add gathered information to the database
 	Dragons.create(
 		req.body,
 		(err, createdDragon) => {
-			if (err) {console.log(`Error: ${err}`);}
+			if (err) {console.log(`Error: `, err);}
 			else {
-				console.log("-------------------- Created Dragon --------------------\n", createdDragon);
+				console.log(`-------------------- Created Dragon --------------------\n`, createdDragon);
 				res.redirect('/dragons');
 			}
 		})
@@ -41,8 +41,20 @@ router.post('/', (req, res) => {
 
 
 // -------------------- INDEX ROUTE ---------------------- //
+/*********** Show All the Dragons! ***********/
 
 router.get('/', (req, res) => {
+
+	Dragons.find({},
+		(err, allDragons) => {
+			if (err) {console.log(`Error: `, err);}
+			else {
+				console.log(`-------------------- All Dragons --------------------\n`, allDragons);
+				res.render('index.ejs', {
+					Dragons: allDragons;
+				})
+			}
+	})
 	
 })
 
